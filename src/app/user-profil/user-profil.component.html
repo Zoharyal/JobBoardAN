@@ -1,0 +1,24 @@
+
+<div *ngIf="!decodedToken">
+    Aucune data!
+</div>
+
+<div *ngIf="isAdmin">
+   Profil de  {{decodedToken.nickname}}
+   <div *ngFor="let job of jobs">
+        <strong>{{job.title}}</strong>
+        Publié il y a {{job.publishdate | daysAgo }}
+        <div>
+            {{job.description | truncate:5:'ET ALORS  E EA A EA E AE'}}
+        </div>
+    </div>
+    
+</div>
+
+<div *ngIf="!isAdmin">
+    Profil de  {{decodedToken.nickname}}
+    <div *ngFor="let job of jobs">
+        <strong>{{job.title}}</strong>
+        Publié il y a {{job.publishdate | daysAgo }}
+    </div>
+</div>

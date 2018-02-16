@@ -1,0 +1,20 @@
+<div class="form-group col-md-12">
+  <form #searchForm="ngForm" (ngSubmit)="searchJobs(searchForm.value)">
+    <label for="term">Rechercher par techno : </label>
+    <input type="text"
+           ngModel
+           class="form-control"
+           name="term"
+           placeholder="Techno : Angular/React/ Node"
+           required
+    >
+    <label for="place">Rechercher par ville</label>
+    <input type="text"
+           ngModel
+           class="form-control"
+           name="place"
+           placeholder="Ville recherchée"
+    >
+    <button type="submit" class="btn btn-success" [disabled]="searchForm.invalid">Rechercher</button>
+  </form>
+</div>

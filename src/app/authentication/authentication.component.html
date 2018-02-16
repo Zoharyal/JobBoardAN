@@ -1,0 +1,30 @@
+
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" *ngIf="!isAuthenticated">
+    <div class="form-group">
+      <label for="email">Adresse mail</label>
+      <input type="email"
+             class="form-control"
+             ngModel
+             name="email"
+             placeholder="Email"
+             required
+
+      >
+      <label for="password">Mot de passe</label>
+      <input type="password"
+             class="form-control"
+             ngModel
+             name="password"
+             placeholder="Mot de passe"
+             required
+      >
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+
+<div *ngIf="isAuthenticated">
+  {{ welcomeMessage }}
+  <pre>
+    {{ jbData | json }}
+  </pre>
+</div>
